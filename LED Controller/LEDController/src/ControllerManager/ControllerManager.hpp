@@ -22,8 +22,10 @@ class ControllerManager: public ICommandCLI, public ILEDController, public IPers
         int GetSize() const { return sizeof(mCurrentModule); }
         int GetAddrStart() const { return mAddr; }
         int GetAddrEnd() const { return mAddr+GetSize(); }
-    private:
+        inline int GetCurrentModuleIndex() const { return mCurrentModule; }
+        inline int GetTotalModules() const { return mModules.size(); }
         bool SelectModule(int index);
+    private:
         void SaveAll();
         ControllerModule& GetCurrentModule();
 };
